@@ -83,7 +83,7 @@ function Nav() {
             </div>
 
           <Disclosure.Panel className="md:hidden">
-            <div className="space-y-1 pb-3 pt-2">
+            <div className="flex flex-col justify-center items-center space-y-1 pb-3 pt-2">
               <Disclosure.Button
                 as="a"
                 href="#"
@@ -91,12 +91,21 @@ function Nav() {
               >
                 My Bench
               </Disclosure.Button>
+              {isLoggedIn ? (
+                <button onClick={handleLogout} className="nav-links block bg-transparent mr-10 sm:pl-5 sm:pr-6">
+                  Logout 
+                </button>
+              ) : (
+                <Link to="/login" className="nav-links block sm:p-5 sm:pr-6">
+                  Login
+                </Link>
+              )}
               <Disclosure.Button
                 as="a"
                 href="#"
-                className="nav-links block sm:pl-5 sm:pr-6"
+                className="nav-links block p-1 sm:pl-5 sm: pr-6"
               >
-                Login/Logout
+                Resources
               </Disclosure.Button>
             </div>
             <div className="nav-links block sm:pl-5 sm:pr-6">

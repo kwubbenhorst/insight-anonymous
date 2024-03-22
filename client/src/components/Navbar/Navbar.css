@@ -39,6 +39,8 @@ img .h-8 w-auto {
     font-weight: 700;
 }
 
+
+
 #resources-button:hover {
     color: green;
     font-weight: 700;
@@ -62,5 +64,9 @@ img .h-8 w-auto {
 #resources-button:active {
     color: gray;
     font-weight: 800;
+}
+
+.financial-personal-career-row {
+    margin-bottom: 30px;
 }
 
