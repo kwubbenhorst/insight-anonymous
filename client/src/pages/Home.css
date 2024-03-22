@@ -1,0 +1,93 @@
+h2 {
+    margin-bottom: 25px;
+    font-size: 2.9rem;
+}
+
+h2.main-page-title {
+    margin-bottom: 15px;
+}
+
+h2.byline-quote {
+    font-size: 1.5rem;
+    text-align: center;
+    font-style: italic;
+}
+
+p {
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: var(--light);
+    padding-top: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.public-conversations-section {
+    background-color: var(--med-dark);
+    padding: 5px 20px 20px 20px;
+    border-radius: 1%;
+    margin-top: 25px;
+    margin-bottom: 20px; 
+}
+
+.public-conversations-header-section {
+    display: flex;
+    padding: 25px;    
+}
+
+.public-conversations-header-section .row {
+    display: flex;
+    align-items: center; 
+  }
+
+  img .pavilion-image {
+    width: 90%;
+    height: 90%; 
+}
+
+#welcome-to-pavilion-title {
+    font-size: 1.5rem;
+}
+
+#welcome-to-pavilion-blurb {
+  color: var(--light);
+
+}
+
+.title-and-blurb-column-middle {
+    text-align: center;
+}
+
+.button-column-right {
+    text-align: center;
+}
+
+#start-public-conversation-btn {
+    align-self: center;
+    border-color: var(--light);
+    width: 90%;
+    padding: 10px;
+    color: var(--light);
+}
+
+#start-public-conversation-btn:hover {
+    color: var(--med-light);
+    background-color: var(--dark);
+}
+
+#start-public-conversation-btn:active {
+    color: var(--light);
+    background-color: var(--medium);
+    border-color: var(--dark);
+}
+
+
+
+
+
+
+
+

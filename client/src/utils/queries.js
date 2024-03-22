@@ -1,23 +1,93 @@
-// Important for useQuery: We bring in gql from the @apollo/client library to allow us to parse queries (and mutations) as template literals
 import { gql } from '@apollo/client';
 
-// Important for useQuery: Each query we'd like to be able to perform gets exported out of our queries.js utility
-export const QUERY_PROFILES = gql`
-  query allProfiles {
-    profiles {
+
+export const GET_ALL_CONVERSATIONS = gql`
+  query GetAllConversations {
+    conversations {
       _id
-      name
-      skills
+      conversationTitle
+      username
+      createdAt
+      expertise
+      commentCount
     }
   }
 `;
 
-export const QUERY_SINGLE_PROFILE = gql`
-  query singleProfile($profileId: ID!) {
-    profile(profileId: $profileId) {
+export const GET_ALL_PUBLIC_CONVERSATIONS = gql`
+  query GetAllPublicConversations {
+    conversations(filter: { isPrivate: false }) {
       _id
-      name
-      skills
+      conversationTitle
+      username
+      createdAt
+      expertise
+      commentCount
     }
   }
 `;
+
+export const GET_ALL_PRIVATE_CONVERSATIONS = gql`
+  query GetAllPrivateConversations {
+    conversations(filter: { isPrivate: true }) {
+      _id
+      conversationTitle
+      username
+      createdAt
+      expertise
+      commentCount
+    }
+  }
+`;
+
+
+
+export const GET_CONVERSATION_BY_ID = gql`
+  query GetConversationById($conversationId: ID!) {
+    conversation(conversationId: $conversationId) {
+      _id
+      conversationTitle
+      conversationText
+      createdAt
+      username
+      comments {
+        commentId
+        comment
+        username
+        createdAt
+      }
+    }
+  }
+`;
+
+export const GET_USER_BY_ID = gql`
+  query GetUserById($userId: ID!) {
+    user(userId: $userId) {
+      _id
+      username
+      password
+      buddy {
+        _id
+        username
+        expertise
+      }
+      availability
+      role
+      expertise
+      conversation {
+        _id
+        conversationTitle
+        conversationText
+        createdAt
+        username
+        comments {
+          commentId
+          comment
+          username
+          createdAt
+        }
+      }
+    }
+  }
+`;
+
