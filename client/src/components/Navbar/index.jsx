@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { PlusIcon } from '@heroicons/react/20/solid'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import AuthService from '../../utils/auth';
 import './Navbar.css'
 
@@ -11,6 +11,10 @@ function classNames(...classes) {
 }
 
 function Nav() {
+
+  // Get the current location using the useLocation hook
+  const location = useLocation();
+
   // Check if the user is logged in
   const isLoggedIn = AuthService.loggedIn();
 
@@ -18,6 +22,10 @@ function Nav() {
   const handleLogout = () => {
     AuthService.logout();
   };
+
+  // Determine the active page based on the current location
+  const activePage = location.pathname;
+
 
   return (
     <Disclosure as="nav" className="nav-container bg-white shadow">
@@ -51,7 +59,10 @@ function Nav() {
                 <div className="hidden md:ml-6 md:flex md:space-x-8">
                   <Link to="/my-bench"
                     id="my-bench-button"
-                    className="nav-links inline-flex items-center hover:text-green-700"
+                    className={classNames(
+                      'nav-links inline-flex items-center hover:text-green-700',
+                      activePage === '/my-bench' ? 'active' : ''
+                    )}
                   >
                     My Bench
                   </Link>
@@ -63,7 +74,10 @@ function Nav() {
                     <Link
                       to="/login"
                       id="login-button"
-                      className="nav-links inline-flex items-center"
+                      className={classNames(
+                        'nav-links inline-flex items-center',
+                        activePage === '/login' ? 'active' : ''
+                      )}
                     >
                       Login
                     </Link>
@@ -71,7 +85,10 @@ function Nav() {
                   <Link
                     to="/resources"
                     id="resources-button"
-                    className="nav-links inline-flex items-center"
+                    className={classNames(
+                      'nav-links inline-flex items-center',
+                      activePage === '/resources' ? 'active' : ''
+                    )}
                   >
                     Resources
                   </Link>
@@ -116,6 +133,7 @@ function Nav() {
     </Disclosure>
   )
 }
+
 
 
 export default Nav;
