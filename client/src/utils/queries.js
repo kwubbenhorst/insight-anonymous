@@ -50,6 +50,7 @@ export const GET_CONVERSATION_BY_ID = gql`
       conversationText
       createdAt
       username
+      isPrivate
       comments {
         commentId
         comment
@@ -87,6 +88,14 @@ export const GET_USER_BY_ID = gql`
           createdAt
         }
       }
+    }
+  }
+`;
+
+export const GET_ALL_USERNAMES = gql`
+  query GetAllUsernames {
+    users {
+      username
     }
   }
 `;
